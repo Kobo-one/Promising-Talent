@@ -38,16 +38,17 @@ if( !empty($_POST) ){
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/script.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,800,700,900' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+<?php include_once("includes/nav.inc.php");?>
     <div class="board">
-        <div class="top_page"><h1 class="title">Nieuwe activiteit</h1></div>
+        <div class="top_page"><h1 class="title">Maak een nieuwe activiteit aan en spot talent</h1></div>
         
         <div class="dashboard">
         <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
             <section class="artikel artikel_details">
-                <h1>Artikel</h1>    
+                  
                 <p>Informatie over het artikel dat u wilt verkopen.</p>
                 <div class="field">
                     <div class="input_label">
@@ -67,7 +68,7 @@ if( !empty($_POST) ){
                 
             </section>
 
-                    <p>Voeg de datums toe (meerdere studenten <strong>mogen</strong> op dezelfde datum komen)</p>
+                    <p id="dateTitle">Voeg de datums toe (meerdere studenten <strong>mogen</strong> op dezelfde datum komen)</p>
                 <div class="field dates">
                     <div class="input_label">
                         <label for="dates">Datum student 1: </label>

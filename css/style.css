@@ -1,0 +1,88 @@
+body{
+    font-family: "raleway", "sans-serif";
+}
+nav{
+    width: 100vw;
+    height: 75px;
+    background-color: #0da0ff;
+    
+}
+#logo{
+    width: 50%;
+    height: 70px;
+    background-image: url(../img/Logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+}
+nav ul{
+    
+    height: 50px;
+    margin-left: 50px;
+    
+    text-decoration: none;
+    flex-direction: row;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+    
+}
+nav ul li{
+    
+    flex-direction: row;
+    border-radius: 50%;
+
+}
+nav ul li a{
+    font-size: 20px;
+    border-radius: 50px;
+    
+    color: white;
+    text-decoration: none;
+}
+nav ul li a:last-child{
+    background-color: #21475f;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+h1{
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bolder;
+    padding-left: 10px;
+    color: #21475f;
+}
+
+
+.artikel_details p{
+    padding-bottom: 3em;
+}
+
+.input_label label{
+    font-weight: bold;
+    padding-right: 1em;
+    padding-bottom: 1.2em;
+}
+
+.input_label{
+    padding-bottom: 4em;
+}
+
+.dashboard{
+    padding-left: 10px;
+    color: #21475f;
+    text-align: center;
+}
+
+.field.dates{
+    padding-top: 1.2em;
+}
+
+.button_send{
+    background-color: #21475f;
+    color: white;
+}
