@@ -150,12 +150,15 @@ class activity {
 
 
     public function createActivity(){
+        $images = ["img/advocaat.jpg", "img/bakker.jpg", "img/code.jpg", "img/dokter.jpg","img/chefkok.jpg", "img/prof.jpg" , "img/tellen.jpg"];
+        $images[array_rand($images)];
         $conn = Db::getInstance();
-        $statement = $conn->prepare("INSERT INTO activities (`title`, `description`, `company_id`, `user_count`) VALUES (:title,:description,:companyId,:userCount)");
+        $statement = $conn->prepare("INSERT INTO activities (`title`, `description`, `company_id`, `user_count`, `img`) VALUES (:title,:description,:companyId,:userCount, :img)");
         $statement->bindValue(":title", $this->getTitle());
         $statement->bindValue(":description", $this->getDescription());
         $statement->bindValue(":userCount", $this->getUserCount()); 
-        $statement->bindValue(":companyId", $this->getCompanyId());    
+        $statement->bindValue(":companyId", $this->getCompanyId());
+        $statement->bindValue(":img", $images[1]);        
         $activity_upload = $statement->execute();
         $this->setId($conn->lastInsertId());
         $this->saveDates();
@@ -179,7 +182,7 @@ class activity {
 
     public static function getAllActivities(){
         $conn = Db::getInstance();
-        $statement=$conn->prepare("SELECT * FROM activities");
+        $statement=$conn->prepare("SELECT * FROM activities ORDER BY id DESC");
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         
@@ -218,58 +221,6 @@ class activity {
     }
 
 
-    public static function getFilteredProducts($type){
-        $products = Product::getAllProducts();
-        $filteredProducts = [];
-
-        foreach ($products as $key => $p) {
-            if ($p['category'] === $type) {
-                $filteredProducts[$key] = $p;
-            }
-        }
-        return $filteredProducts;
-
-    }  
-    public static function getProduct($id){
-        $conn = Db::getInstance();
-        $statement=$conn->prepare("SELECT * FROM products WHERE id = :id");
-        $statement->bindValue(":id", $id);
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        foreach($result as $key => $c){
-            $result[$key]['prices'] = Product::getAllPrices($c['id']);
-        }
-        return $result;
-
-    }  
-
-    public static function newBuy($id){
-        if(Product::checkBuy($id)){
-            $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO buys (user, product) VALUES (:user,:id)");
-            $statement->bindValue(":user", $_SESSION['user']);
-            $statement->bindValue(":id", $id);
-            $buy_new = $statement->execute();
-            return $buy_new;
-        }else{
-            return false;
-        }
-    }
-
-    public static function checkBuy($id){
-        $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT * FROM buys WHERE user = :user AND product = :id");
-        $statement->bindValue(":user", $_SESSION['user']);
-        $statement->bindValue(":id", $id);
-        $buy_new = $statement->execute();
-        if($statement->rowCount()==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-        
-    }
 
 }
 
