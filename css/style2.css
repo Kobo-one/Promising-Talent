@@ -1,3 +1,6 @@
+body{
+    font-family: "raleway", "sans-serif";
+}
 .header{
     background: linear-gradient(to bottom right, #0DA0FF, #0CCCE8);
     display: flex;

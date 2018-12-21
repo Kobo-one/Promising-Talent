@@ -33,7 +33,7 @@ if( !empty($_POST) ){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GUBL - Nieuwe activiteit</title>
+    <title>Promising Talent - Nieuwe activiteit</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -57,7 +57,8 @@ if( !empty($_POST) ){
                     </div>
                     <div class="input_label">
                         <label for="description">Description</label>
-                        <input type="text" class="name" id="description" name="description">
+                        <textarea class="name" id="description" name="description">
+                        </textarea>
                     </div>
 
                     <div class="input_label">

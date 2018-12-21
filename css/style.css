@@ -16,6 +16,7 @@ nav{
     background-position: center center;
     
 }
+
 nav ul{
     
     height: 50px;
@@ -28,7 +29,7 @@ nav ul{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
     
-}
+
 nav ul li{
     
     flex-direction: row;
@@ -36,16 +37,17 @@ nav ul li{
 
 }
 nav ul li a{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 20px;
     border-radius: 50px;
     
     color: white;
     text-decoration: none;
 }
-nav ul li a:last-child{
+.navbutton{
     background-color: #21475f;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 h1{
     font-size: 2em;
