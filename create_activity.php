@@ -5,7 +5,9 @@ include_once("lib/classes/Activity.class.php");
 include_once("lib/classes/Functions.class.php");
 
 if( !empty($_POST) ){
+    echo "posted";
     if(isset($_POST['submit'])){
+        echo "submitted";
     //if image is chosen
         
             $activity = new Activity();
@@ -17,6 +19,7 @@ if( !empty($_POST) ){
 
             if($activity->createActivity()){
                 //header("Location: index.php"); 
+                echo "send";
             }
         }
         

@@ -177,26 +177,46 @@ class activity {
     }
 
 
-    public static function getAllProducts(){
+    public static function getAllActivities(){
         $conn = Db::getInstance();
-        $statement=$conn->prepare("SELECT * FROM products WHERE ended = 0 ORDER BY end_date ASC");
+        $statement=$conn->prepare("SELECT * FROM activities");
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
         foreach($result as $key => $c){
-            $result[$key]['prices'] = Product::getAllPrices($c['id']);
+            $dates = Activity::getAllDates($c['id']);
+            $result[$key]['dates'] = $dates;
+            
+            foreach($dates as $dkey => $d){
+                $result[$key]['student'] = Activity::getActivityStudent($d["id"]);
+           }
         }
+        
+        
         return $result;
 
     }  
 
-    public static function getAllPrices($id){
+    public static function getAllDates($id){
         $conn = Db::getInstance();
-        $statement=$conn->prepare("SELECT price,amount FROM prices WHERE product = :id");
+        $statement=$conn->prepare("SELECT * FROM activity_date WHERE activity_id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+
+        return $result;
+    }
+
+    public static function getActivityStudent($id){
+        $conn = Db::getInstance();
+        $statement=$conn->prepare("SELECT * FROM student_activity WHERE activity_date_id = :id");
         $statement->bindValue(":id", $id);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
 
     public static function getFilteredProducts($type){
         $products = Product::getAllProducts();

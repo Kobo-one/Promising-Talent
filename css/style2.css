@@ -1,0 +1,51 @@
+.header{
+    background: linear-gradient(to bottom right, #0DA0FF, #0CCCE8);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7em;
+    padding: 0 15px;
+}
+
+.header__img{
+    height: 30px;
+}
+
+.activity__img{
+    height: 300px;
+    
+}
+
+.activity__imgdiv{
+    width: 80vw;
+    overflow: hidden;
+    max-width: 288px;
+}
+.content{
+}
+
+.activity{
+    margin: auto;
+    width: 80vw;
+    
+    max-width: 288px;
+}
+
+.center{
+    text-align: center;
+}
+
+.mobile{
+    width: 360px;
+}
+
+.cta{
+    text-decoration: none;
+    background-color: #21475F;
+    border-radius: 20px;
+    font-size: 1.3em;
+    padding: 10px;
+    color: #fff;
+
+}
