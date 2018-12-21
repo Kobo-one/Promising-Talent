@@ -18,8 +18,7 @@ if( !empty($_POST) ){
             $activity->setDates($_POST['dates']);
 
             if($activity->createActivity()){
-                //header("Location: index.php"); 
-                echo "send";
+                header("Location: student.php");
             }
         }
         
