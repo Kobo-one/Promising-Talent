@@ -48,7 +48,6 @@ if( !empty($_POST) ){
         <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
             <section class="artikel artikel_details">
                   
-                <p>Informatie over het artikel dat u wilt verkopen.</p>
                 <div class="field">
                     <div class="input_label">
                         <label for="title">Title</label>
